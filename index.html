@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excellence Academy</title>
+<link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+<link rel="manifest" href="manifest.json"> <!-- Link to manifest file -->
+</head>
+<body>
+<div class="container">
+  <h1 class="title">Excellence Academy</h1>
+  <input type="text" id="studentNameInput" placeholder="Enter student's name">
+  <button class="button add-student-button" onclick="addStudent()">Add Student</button>
+  <button class="button undo-button" onclick="undo()">Undo</button>
+  <button class="button redo-button" onclick="redo()">Redo</button>
+  <table id="students-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Presence</th>
+        <th>Discipline</th>
+        <th>Teamwork</th>
+        <th>Participation</th>
+        <th>Total Points</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody id="students-body">
+    </tbody>
+  </table>
+  <div class="button-container">
+    <button class="button clear-all-button" onclick="clearAllMarks()">Clear All Marks</button>
+    <button class="button save-excel-button" onclick="saveAsExcel()">Save as Excel</button>
+  </div>
+</div>
+<script src="script.js"></script>
+<!-- Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+</body>
+</html>
+
+
